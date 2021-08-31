@@ -5,6 +5,20 @@ mat = np.full((n, n), '_')
 print(mat)
 
 
+def player_input(number):
+    i, j = input(f'Player {number} enter location: ').split()
+    i, j = int(i), int(j)
+    while mat[i, j] != '_':
+        i, j = input('Already taken, choose another location: ').split()
+        i, j = int(i), int(j)
+    if mat[i, j] == '_':
+        if number == 1:
+            mat[i, j] = 'X'
+        elif number == 2:
+            mat[i, j] = 'O'
+    print(mat)
+
+
 def check_matrix(matrix):
     n = matrix.shape[0]
     for i in range(n):
@@ -35,14 +49,7 @@ def check_matrix(matrix):
 
 while '_' in mat:
     # Player 1
-    i, j = input('Player 1 enter location: ').split()
-    i, j = int(i), int(j)
-    while mat[i, j] != '_':
-        i, j = input('Already taken, choose another location: ').split()
-        i, j = int(i), int(j)
-    if mat[i, j] == '_':
-        mat[i, j] = 'X'
-    print(mat)
+    player_input(1)
     if check_matrix(mat) == 1:
         print('Player 1 wins')
         break
@@ -51,14 +58,7 @@ while '_' in mat:
         break
 
     # Player 2
-    i, j = input('Player 2 enter location: ').split()
-    i, j = int(i), int(j)
-    while mat[i, j] != '_':
-        i, j = input('Already taken, choose another location: ').split()
-        i, j = int(i), int(j)
-    if mat[i, j] == '_':
-        mat[i, j] = 'O'
-    print(mat)
+    player_input(2)
     if check_matrix(mat) == 2:
         print('Player 2 wins')
         break
