@@ -20,14 +20,14 @@ def player_input(number):
 
 
 def check_matrix(matrix):
-    n = matrix.shape[0]
-    for i in range(n):
+    k = matrix.shape[0]
+    for i in range(k):
         if len(set(matrix[i])) == 1:
             if 'X' in matrix[i]:
                 return 1
             elif 'O' in matrix[i]:
                 return 2
-    for i in range(n):
+    for i in range(k):
         if len(set(matrix[:, i])) == 1:
             if 'X' in matrix[:, i]:
                 return 1
