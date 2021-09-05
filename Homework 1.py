@@ -8,6 +8,9 @@ print(mat)
 def player_input(number):
     i, j = input(f'Player {number} enter location: ').split()
     i, j = int(i), int(j)
+    while i not in range(0, n) or j not in range(0, n):
+        i, j = input('Location not in range, choose again: ').split()
+        i, j = int(i), int(j)
     while mat[i, j] != '_':
         i, j = input('Already taken, choose another location: ').split()
         i, j = int(i), int(j)
